@@ -1,0 +1,40 @@
+<p>
+  emp-list component works!
+</p>
+<p>
+  Printing N Number of Employees
+  {{num}}
+</p>
+<ul>
+  <li *ngFor="let u of users.result; let i=index">
+    <ng-container *ngIf="i<num">
+      {{u.name}}
+    </ng-container>
+  </li>
+</ul>
+<p>--------------------------------------</p>
+<div *ngFor="let u of users.result let i=index">
+    <ng-container *ngIf="emp_id == i">
+      <button (click)="onClick()">{{u.name}}</button>
+    </ng-container>
+</div>
+
+<p>
+  ----------------------------------------
+</p>
+<p>
+  Employee Details
+</p>
+<div>
+<ng-container *ngIf="flag">
+  <ul *ngFor="let y of users.result,let i=index" >
+  <ng-container *ngIf="emp_id==i">
+  <b>Name: </b> {{y.name}}<br>
+  <b>Gender: </b> {{y.gender}}<br>
+  <b>DOB: </b> {{y.dob}}<br>
+  <b>Email: </b> {{y.email}}<br>
+  <b>Phone: </b>{{y.phone}}<br>
+  </ng-container>
+  </ul>
+</ng-container>
+</div>

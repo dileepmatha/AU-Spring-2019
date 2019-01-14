@@ -1,0 +1,30 @@
+<p>
+  app1-component works!
+</p>
+<h2>
+  Hello {{myName}}!
+</h2>
+<!-- pipes  -->
+<p>
+  {{new_date | date:'dd.MM.y'}}
+</p>
+<p>
+  {{new_date | date:'fullDate'}}
+</p>
+ <!-- event binding in one way -->
+<button (click)="button_fn()">Click</button>
+ <!-- two way binding -->
+<input [(ngModel)]="myName"/>
+<!-- structural directives -->
+<table>
+  <tr *ngFor="let c of cmp; let i=index;">
+    <ng-container *myngIf="i">
+      <td>{{i}}</td>
+      <td>{{c}}</td>
+    </ng-container>
+  </tr>
+</table>
+
+<!-- <div *myngIf="temp">
+  <p>{{myName}}</p>  
+</div> -->
