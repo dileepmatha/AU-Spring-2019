@@ -16,3 +16,27 @@ class App extends Component {
 }
 
 export default App;
+
+{/* <Paper style={classes.root}>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableRow>
+            <CustomTableCell align="right">ItemName</CustomTableCell>
+            <CustomTableCell align="right">ItemCost</CustomTableCell>
+            <CustomTableCell align="right">isAvailable</CustomTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map(row => {
+            return (
+              <TableRow className={classes.row} key={row.id}>
+                <CustomTableCell align="right">{row.itemname}</CustomTableCell>
+                <CustomTableCell align="right">{row.itemcost}</CustomTableCell>
+                <CustomTableCell align="right">
+                </CustomTableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table> */}
+    // </Paper>

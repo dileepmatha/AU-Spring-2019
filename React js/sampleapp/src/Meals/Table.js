@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -8,11 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import AddButton from './AddButton';
-
-// import Fab from '@material-ui/core/Fab';
-// import AddIcon from '@material-ui/icons/Add';
-
-// import Swithces from './navigation';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -27,14 +22,10 @@ const CustomTableCell = withStyles(theme => ({
 const styles = theme => ({
   root: {
     width: '80%',
-    // marginTop: theme.spacing.unit * 3,
+    //marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
-    marginTop: '3%',
-    marginLeft: '10%'
-  },
-  icon:{
-    marginTop: '5%',
-    marginLeft: '3%',
+    marginLeft: '15%',
+    marginTop: '15%',
   },
   table: {
     minWidth: 700,
@@ -46,50 +37,57 @@ const styles = theme => ({
   },
 });
 
-const rows=[{itemname:"Chapathi",itemcost:15,isAvailable:'yes'},
-    {itemname:"Dal",itemcost:20,isAvailable:'yes'},
-    {itemname:"Fry",itemcost:20,isAvailable:'yes'},
-    {itemname:"Curd",itemcost:10,isAvailable:'yes'}
-    ]
+let id = 0;
+function createData(name, calories, fat, carbs, protein) {
+  id += 1;
+  return { id, name, calories, fat, carbs, protein };
+}
 
-export class  CustomizedTable extends Component {
-  state= {
-    rows: []
-  }
-  handlerows=(items)=>{
-    this.setState({rows : [...this.state.rows, items]});
-  }
-  const {classes} = props
-  render(){
+function sendData1(rows1){
+  rows = rows1;
+}
+
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+];
+
+function CustomizedTable(props) {
+  const { classes } = props;
   return (
     <div>
-    <AddButton onUpdateRows={this.handlerows}/>
+    <AddButton handleData={this.sendData}></AddButton>
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <CustomTableCell align="right">ItemName</CustomTableCell>
-            <CustomTableCell align="right">ItemCost</CustomTableCell>
-            <CustomTableCell align="right">isAvailable</CustomTableCell>
+            <CustomTableCell>Dessert (100g serving)</CustomTableCell>
+            <CustomTableCell align="right">Calories</CustomTableCell>
+            <CustomTableCell align="right">Fat (g)</CustomTableCell>
+            <CustomTableCell align="right">Carbs (g)</CustomTableCell>
+            <CustomTableCell align="right">Protein (g)</CustomTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => {
-            return (
-              <TableRow className={classes.row} key={row.id}>
-                <CustomTableCell align="right">{row.itemname}</CustomTableCell>
-                <CustomTableCell align="right">{row.itemcost}</CustomTableCell>
-                <CustomTableCell align="right">
-                </CustomTableCell>
-              </TableRow>
-            );
-          })}
+          {rows.map(row => (
+            <TableRow className={classes.row} key={row.id}>
+              <CustomTableCell component="th" scope="row">
+                {row.name}
+              </CustomTableCell>
+              <CustomTableCell align="right">{row.calories}</CustomTableCell>
+              <CustomTableCell align="right">{row.fat}</CustomTableCell>
+              <CustomTableCell align="right">{row.carbs}</CustomTableCell>
+              <CustomTableCell align="right">{row.protein}</CustomTableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </Paper>
-    </div>
-  );
-  }
+  </div>
+ );
 }
 
 CustomizedTable.propTypes = {
@@ -97,4 +95,4 @@ CustomizedTable.propTypes = {
 };
 
 const SimpleTabl = withStyles(styles)(CustomizedTable);
-export default SimpleTabl;
+export default  SimpleTabl;

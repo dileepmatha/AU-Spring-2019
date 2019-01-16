@@ -23,14 +23,13 @@ export default class AddButton extends Component {
     {itemname:"Curd",itemcost:10,isAvailable:'yes'}],
     temp: [],
   };
+
   handleClickOpen = (event) => {
     this.setState({ open: true });
     this.setState({ rows: [...this.state.rows, {itemname: this.state.temp[0], itemcost:this.state.temp[1], isAvailable:this.state.temp[2]}] });
     this.setState({temp: []});
-    var rows1 = this.state.rows;
-    this.props.onUpdateRows(rows1); 
+    
   };
-
   handleChange1 = (event) =>{
     this.setState({ temp: [...this.state.temp, event.target.value] });
     // alert(this.state.temp);
@@ -49,7 +48,7 @@ export default class AddButton extends Component {
   };
 
   render() {
-    const { classes } = this.props
+    // const { classes } = this.props
     return (
       <div style={divStyle}>
          <Fab color="primary" aria-label="Add" onClick={this.handleClickOpen}>
@@ -109,8 +108,3 @@ export default class AddButton extends Component {
     );
   }
 }
-
-// AddButton.propTypes = {
-//   classes: PropTypes.object.isRequired,
-//   temp: PropTypes.object.isRequired,
-// };
