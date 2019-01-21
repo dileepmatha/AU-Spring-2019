@@ -1,4 +1,4 @@
-package com.accolite.servletapp;
+package com.accolite.servletapp.filter;
 
 import java.io.IOException;
 import javax.servlet.Filter;

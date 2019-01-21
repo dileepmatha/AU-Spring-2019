@@ -1,4 +1,4 @@
-package com.accolite.servletapp;
+package com.accolite.servletapp.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
