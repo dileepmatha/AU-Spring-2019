@@ -14,7 +14,7 @@ public class Vehicle {
 	private String name1;
 	//7) One to One Mapping
 	//9)Cascade Types
-	@OneToOne(cascade = CascadeType.ALL)
+	//@OneToOne(cascade = CascadeType.ALL)
 	private Address ad;
 	public Address getAd() {
 		return ad;

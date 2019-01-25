@@ -3,6 +3,7 @@ package com.accolite.Hibernate.model;
 import javax.persistence.*;
 
 @Entity
+@Cacheable
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorValue("EMP_TYPE")
 public class Employee {
